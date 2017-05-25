@@ -4,9 +4,13 @@
 * Version: 0.0.1
 
 ## Install
-copy the script to your ~/bin folder
+Copy-paste the following into command line:
+```
+curl -o ~/bin/uc https://raw.githubusercontent.com/better-live-movement/UI-Constructor/master/uc.sh
+```
+
 
 ## Usage
 ```
-$ cu.sh project-name
+$ cu projectName
 ```
