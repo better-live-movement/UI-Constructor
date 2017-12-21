@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- installation and initialization of redux with webpack and babel
+- installation and initialization of [redux](https://reactjs.org/) with [webpack](https://webpack.js.org/) and [babel](https://babeljs.io/)
 
 ## [0.0.1] - 2017-05-25
 ### Added
