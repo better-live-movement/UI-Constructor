@@ -3,11 +3,6 @@
 # [Melchior Kannengießer] UI Constructor
 #
 # This script initialize a UI project
-#
-# --- change log ---------------------------------------------------
-# [0.0.1] - 2017-05-25
-# Added
-# - initial Ideas
 # ------------------------------------------------------------------
 VERSION=0.0.1
 SUBJECT=some-unique-id
