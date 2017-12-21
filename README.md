@@ -9,7 +9,10 @@
 ### Install
 Copy-paste the following into command line:
 ```
-curl -o ~/bin/uc https://raw.githubusercontent.com/better-live-movement/UI-Constructor/master/uc.sh
+curl -o ~/.ui_constructor https://raw.githubusercontent.com/better-live-movement/UI-Constructor/master/uc.sh
+mkdir ~/bin
+cd ~/bin
+ln -s ../.ui_constructor/uc.sh uc
 ```
 
 ## Usage
