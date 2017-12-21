@@ -174,7 +174,24 @@ echo '</html>' >> index.html
 #-create-file:-index.js--------------------------------------------
 mkdir app && cd app
 touch index.js
-echo 'console.log("It works!");' >> index.js
+echo 'import React from '"'"'react'"'"';' >> index.js
+echo 'import ReactDom from '"'"'react-dom'"'"';' >> index.js
+echo ' ' >> index.js
+echo 'class Layout extends React.Component {' >> index.js
+echo '  render(){' >> index.js
+echo '    return(' >> index.js
+echo '      <div>' >> index.js
+echo '        <h1>'$AppName'</h1>' >> index.js
+echo '        <p>under construction</p>' >> index.js
+echo '      </div>' >> index.js
+echo '    );' >> index.js
+echo '  }' >> index.js
+echo '}' >> index.js
+echo ' ' >> index.js
+echo 'const app = document.getElementById('"'"'app'"'"');' >> index.js
+echo ' ' >> index.js
+echo 'ReactDom.render(<Layout/>, app);' >> index.js
+echo 'console.log("It works realy! ;-)");' >> index.js
 
 #-build-and-run-dev-server-----------------------------------------
 cd ../..
