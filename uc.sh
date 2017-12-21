@@ -27,7 +27,7 @@ DESCRIPTION
     -v
         show the script-version
     -r
-        install reactjs
+        install redux
 "
 # --- Options processing -------------------------------------------
 redux=false
