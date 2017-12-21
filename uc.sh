@@ -70,7 +70,7 @@ while getopts ":i:vh" optname
     esac
   done
 shift $(($OPTIND - 1))
-param1=$1
+AppName=$1
 param2=$2
 # --- Locks -------------------------------------------------------
 LOCK_FILE=/tmp/$SUBJECT.lock
@@ -81,14 +81,14 @@ fi
 trap "rm -f $LOCK_FILE" EXIT
 touch $LOCK_FILE
 # --- Body --------------------------------------------------------
-echo $param1
+echo $AppName
 echo $param2
 # --- Initialize npm project --------------------------------------
-mkdir $param1 && cd $param1
+mkdir $AppName && cd $AppName
 if [ "$longInit" == false ]; then
   touch package.json
   echo '{' >> package.json
-  echo '  "name": "'$param1'",' >> package.json
+  echo '  "name": "'$AppName'",' >> package.json
   echo '  "version": "0.1.0",' >> package.json
   echo '  "description": "",' >> package.json
   echo '  "scripts": {' >> package.json
@@ -163,9 +163,10 @@ echo '  <head>' >> index.html
 echo '    <meta charset="UTF-8">' >> index.html
 echo '    <meta name="viewport"' >> index.html
 echo '          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">' >> index.html
-echo '    <title>'$param1'</title>' >> index.html
+echo '    <title>'$AppName'</title>' >> index.html
 echo '  </head>' >> index.html
 echo '  <body>' >> index.html
+echo '    <div id="app"></div>' >> index.html
 echo '    <script src="/app/bundle.js"></script>' >> index.html
 echo '  </body>' >> index.html
 echo '</html>' >> index.html
