@@ -20,3 +20,6 @@ cd ~/
 ```
 $ cu projectName
 ```
+
+## Versions
+read the [CHANGELOG](./CHANGELOG.md) for latest updates
