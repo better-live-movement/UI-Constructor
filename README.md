@@ -13,6 +13,7 @@ git clone https://github.com/mjkatgithub/UI-Constructor.git ~/.ui_constructor
 mkdir ~/bin
 cd ~/bin
 ln -s ../.ui_constructor/uc.sh uc
+cd ~/
 ```
 
 ## Usage
