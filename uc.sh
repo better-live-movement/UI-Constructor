@@ -7,14 +7,22 @@
 VERSION=0.0.1
 SUBJECT=some-unique-id
 USAGE="Usage: command -ihv args"
-EXEMPLE="e.g. `basename $0` -i some args"
+EXEMPLE="e.g. `basename $0` -i new ui"
 HELP="
 NAME
     `basename $0`
 SYNOPSIS
-    `basename $0` [-ihv] some args
+    `basename $0` [-ihv] <command>
 DESCRIPTION
-    this script does something
+    this script initialize a UI project
+
+COMMANDS
+    new <app name>
+        initialize a new UI project
+    set <key> <value>
+        TODO will set set the default values for the options someday
+
+OPTIONS
     -i
         show given arguments
     -h
@@ -23,6 +31,8 @@ DESCRIPTION
         show the script-version
     -r
         install redux
+    -l
+        long init
 "
 # --- Options processing -------------------------------------------
 redux=false
@@ -33,13 +43,9 @@ if [ $# == 0 ] ; then
     echo $EXAMPLE >&2
     exit 1;
 fi
-while getopts ":i:vh" optname
+while getopts ":i:vhrlmgw" optname
   do
     case "$optname" in
-      "v")
-        echo "Version $VERSION"
-        exit 0;
-        ;;
       "i")
         echo "-i argument: $OPTARG"
         ;;
@@ -47,13 +53,32 @@ while getopts ":i:vh" optname
         echo "$HELP"
         exit 0;
         ;;
+      "v")
+        echo "Version $VERSION"
+        exit 0;
+        ;;
       "r")
-        echo "Install redux"
+        echo "Install redux" #soon tm
         redux=true
         ;;
       "l")
-        echo "long init"
+        echo "long init" #soon tm
         long=true
+        ;;
+
+      "w")
+        echo "webpack" #soon tm
+        wp=true
+        ;;
+
+      "m")
+        echo "material ui" #soon tm
+        mu=true
+        ;;
+
+      "g")
+        echo "git" #soon tm
+        git=true
         ;;
       "?")
         echo "Unknown option $OPTARG" >&2
@@ -70,8 +95,9 @@ while getopts ":i:vh" optname
     esac
   done
 shift $(($OPTIND - 1))
-AppName=$1
+param1=$1
 param2=$2
+
 # --- Locks -------------------------------------------------------
 LOCK_FILE=/tmp/$SUBJECT.lock
 if [ -f "$LOCK_FILE" ]; then
@@ -80,10 +106,24 @@ if [ -f "$LOCK_FILE" ]; then
 fi
 trap "rm -f $LOCK_FILE" EXIT
 touch $LOCK_FILE
-# --- Body --------------------------------------------------------
-echo $AppName
-echo $param2
+
+# --- Commands processing -----------------------------------------
+if [ "$param1" == "set" ]
+then
+  echo "set config is not implemented yet"
+  exit 0;
+elif [ "$param1" == "new" ]
+then
+  AppName=$param2
+else
+  echo "unknown command" >&2
+  echo $USAGE >&2
+  echo $EXAMPLE >&2
+  exit 1;
+fi
+
 # --- Initialize npm project --------------------------------------
+echo "create $AppName..."
 mkdir $AppName && cd $AppName
 if [ "$longInit" == false ]; then
   touch package.json
