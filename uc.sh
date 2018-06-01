@@ -80,6 +80,10 @@ while getopts ":i:vhrlmgw" optname
         echo "git" #soon tm
         git=true
         ;;
+      "p")
+        echo "PhoneGap" #soon tm
+        PhoneGap=true
+        ;;
       "?")
         echo "Unknown option $OPTARG" >&2
         exit 1;
