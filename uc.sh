@@ -62,8 +62,8 @@ while getopts ":i:vhrlmgw" optname
         redux=true
         ;;
       "l")
-        echo "long init" #soon tm
-        long=true
+          echo "long init"
+        longInit=true
         ;;
 
       "w")
@@ -184,7 +184,7 @@ echo '    filename: "bundle.js",' >> webpack.config.js
 echo '    publicPath: "/app/"' >> webpack.config.js
 echo '  },' >> webpack.config.js
 echo '  module: {' >> webpack.config.js
-echo '    loaders: [' >> webpack.config.js
+echo '    rules: [' >> webpack.config.js
 echo '      {' >> webpack.config.js
 echo '        test: /\.js?/,' >> webpack.config.js
 echo '        include: SRC_DIR,' >> webpack.config.js
